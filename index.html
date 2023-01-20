@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Real-time Charchter Counter</h2>
+        <textarea id="textarea" placeholder="please write your texte here" maxlength="50"></textarea>
+        <div class="counter-countainer">
+            <p>Total Characters
+                <span class="total-counter" id="total-counter">30</span>
+            </p>
+            <p>Reamining
+                <span class="remaining-counter" id="remaining-counter">20</span>
+            </p>
+        </div>
+    </div>
+    <script>
+        //selectionnrt le textarea
+        const textareaElement = document.getElementById("textarea");
+        //total charctere 
+        const totalCharcter=document.getElementById("total-counter");
+        //remaning counter
+        const reaminingCounter=document.getElementById("remaining-counter");
+        //Event
+        textareaElement.addEventListener("keyup",()=>{
+            updateCounter();
+        });
+        function updateCounter(){
+            //counter le nombre de charctére
+            totalCharcter.innerText=textareaElement.value.length;
+            reaminingCounter.textContent=textareaElement.getAttribute("maxlength")-textareaElement.value.length;
+        }
+    </script>
+</body>
+</html>
